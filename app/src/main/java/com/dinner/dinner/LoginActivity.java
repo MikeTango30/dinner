@@ -26,11 +26,17 @@ public class LoginActivity extends AppCompatActivity {
                 //čia rašomas kodas, kuris bus vykdomas ant mygtuko paspaudimo//
                 String username2 = username.getText().toString();
                 String password2 = password.getText().toString();
-                Toast.makeText(LoginActivity.this, "Username: " + username2 + "\n" + "Password: "
-                        + password2, Toast.LENGTH_SHORT).show();
-                //----------------------------------------------------iš kur-------------į kur---------//
-                Intent gotoSearchActivity = new Intent(LoginActivity.this, SearchActivity.class);
-                startActivity(gotoSearchActivity);
+                //klaidu zurnalo isvalymas
+                username.setError(null);
+                password.setError(null);
+                if (Validation.isCredentialsValid(username2) && Validation.isCredentialsValid(password2)) {
+                    //----------------------------------------------------iš kur-------------į kur---------//
+                    Intent gotoSearchActivity = new Intent(LoginActivity.this, SearchActivity.class);
+                    startActivity(gotoSearchActivity);
+                } else {
+                    username.setError( getResources().getString(R.string.login_invalid_credentials_message));
+                    username.requestFocus();
+                }
             }
         });
 

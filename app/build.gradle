@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.dinner.dinner"
+        applicationId "com.dinner.dinner2"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
