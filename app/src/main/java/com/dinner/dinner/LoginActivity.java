@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -18,7 +20,20 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
+        final CheckBox rememberMe = findViewById(R.id.remember_me);
         Button loginBtn = findViewById(R.id.login_btn);
+
+        final User user = new User(LoginActivity.this);
+
+        rememberMe.setChecked(user.isRememberedForLogin());
+
+        if (rememberMe.isChecked()){
+            username.setText(user.getUsernameForLogin(), TextView.BufferType.EDITABLE);
+            password.setText(user.getPasswordForLogin(), TextView.BufferType.EDITABLE);
+        } else {
+            username.setText("", TextView.BufferType.EDITABLE);
+            password.setText("", TextView.BufferType.EDITABLE);
+        }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +45,13 @@ public class LoginActivity extends AppCompatActivity {
                 username.setError(null);
                 password.setError(null);
                 if (Validation.isCredentialsValid(username2) && Validation.isCredentialsValid(password2)) {
+                    user.setUsernameForLogin(username2);
+                    user.setPasswordForLogin(password2);
+                    if(rememberMe.isChecked()){
+                       user.setRemembermeKeyForLogin(true);
+                    } else {
+                        user.setRemembermeKeyForLogin(false);
+                    }
                     //----------------------------------------------------iš kur-------------į kur---------//
                     Intent gotoSearchActivity = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(gotoSearchActivity);
