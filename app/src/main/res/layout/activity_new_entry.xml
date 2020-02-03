@@ -23,17 +23,20 @@
                 android:textSize="20dp" />
 
             <CheckBox
+                android:id="@+id/checkSoup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/new_entry_dinner_type_soup" />
 
             <CheckBox
+                android:id="@+id/checkMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/new_entry_dinner_type_main" />
 
             <CheckBox
+                android:id="@+id/checkSalad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/new_entry_dinner_type_salad" />
@@ -89,11 +92,13 @@
                 android:textSize="20dp" />
 
             <Spinner
+                android:id="@+id/payment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/new_entry_dinner_payment_type" />
 
             <Button
+                android:id="@+id/btn_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent"
