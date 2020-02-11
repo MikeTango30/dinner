@@ -27,7 +27,6 @@
         <item>bitCoin</item>
     </string-array>
     <string name="new_entry_button">Create</string>
-
-
+    <string name="new_entry_database_info">Prašome palaukti, įrašas siunčiamas į duomenų bazę</string>
 
 </resources>
