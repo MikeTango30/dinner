@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 public class NewEntryActivity extends AppCompatActivity {
 
-    private static final String INSERT_URL = "https://javadinner.000webhostapp.com/mobile/db.php";
+    private static final String INSERT_URL = "http://XXX.epizy.com/mobile/db.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
